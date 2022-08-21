@@ -19,6 +19,12 @@ jobs:
       - name: Copy History
         if: always()
         run: cp -r ./docs/history/ ./allure-results/history/
+      - name: Install Java
+        run: apt-get update && apt-get install -y curl wget openjdk-8-jdk
+      - name: smt
+        run: update-alternatives --list java
+      - name: set JAVA_HOME
+        run: export JAVA_HOME=$JAVA_HOME:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
       - name: Generate Report
         if: always()
         run: npm run allure:generate
