@@ -22,7 +22,7 @@ jobs:
       - name: Install Java
         run: apt-get update && apt-get install -y curl wget openjdk-11-jdk
       - name: smt
-        run: sh 'chmod -R o+xw allure-results'
+        run: chmod -R o+xw allure-results
       - name: set JAVA_HOME
         run: export JAVA_HOME=$JAVA_HOME:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
       - name: Generate Report
