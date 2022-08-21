@@ -12,7 +12,7 @@ const checks = require("../fixtures/pages-cheks.json");
 
 describe('Telnyx tests', () => {
   before(() => {
-    //cy.goToMainPage();
+    cy.goToMainPage();
   });
 
   beforeEach(() => {
@@ -106,7 +106,7 @@ describe('Telnyx tests', () => {
     aboutUsPage.dublinOfficeNumber.should('eq', checks.dublinPhone);
   });
 
-  it.only("“Blog” page and filters", () => {
+  it("“Blog” page and filters", () => {
     const mainPage = new MainPage();
     mainPage.Footer.clickOnBlog();
 

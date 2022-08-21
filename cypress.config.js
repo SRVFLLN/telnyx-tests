@@ -1,5 +1,6 @@
 const fs = require("fs-extra");
 const path = require("path");
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
 function getConfigurationByFile(file) {
   const pathToConfigFile = path.resolve(".", "config", `${file}.json`);
@@ -11,10 +12,10 @@ function getConfigurationByFile(file) {
 module.exports = {
   e2e: {
     setupNodeEvents(on, config) {
-    // accept a configFile value or use development by default
-    const file = config.env.configFile || "qa";
+      allureWriter(on, config);
+      const file = config.env.configFile || "qa";
 
-    return getConfigurationByFile(file);
+      return getConfigurationByFile(file);
     }
   }
 }

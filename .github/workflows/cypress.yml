@@ -1,0 +1,54 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node16.14.2-slim-chrome103-ff102
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - run: npm ci
+      - name: Run Tests
+      - run: npm run test
+      - name: Copy History
+        if: always()
+        run: cp -r ./docs/history/ ./allure-results/history/
+      - name: Generate Report
+        if: always()
+        run: npm run allure:generate
+      - name: Upload Results
+        uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: allure-results
+          path: ./allure-results                  
+      - name: Publishing Allure artifact to Github Actions
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: allure-report
+          path: allure-report        
+      - name: Deploy report
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        if: always()
+        with:
+          branch: master 
+          folder: allure-report
+          target-folder: docs
+      - name: Pushes docs to another repository
+        uses: cpina/github-action-push-to-another-repository@main
+        if: always()
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
+        with:
+          source-directory: docs/
+          destination-github-username: 'SRVFLLN'
+          destination-repository-name: 'telnyx-test-reports'
+          user-email: servefallen@gmail.com 
+          commit-message: New reports added
+          target-branch: main 
