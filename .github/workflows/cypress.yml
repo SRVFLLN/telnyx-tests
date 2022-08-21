@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '16.14.2'
+          node-version: '16.14.2' 
       - run: npm ci
       - name: Run Tests
         run: npm run test
@@ -24,7 +24,7 @@ jobs:
       - name: set JAVA_HOME
         run: export JAVA_HOME=$JAVA_HOME:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
       - name: Make possible generate reports
-        run: chmod -R o+xw allure-results && allure results:[[path:'allure-results']]
+        run: chmod -R o+xw allure-results
       - name: Generate Report
         if: always()
         run: npm run allure:generate
