@@ -20,7 +20,7 @@ jobs:
         if: always()
         run: cp -r ./docs/history/ ./allure-results/history/
       - name: Install Java
-        run: apt-get update && apt-get install -y curl wget openjdk-8-jdk
+        run: apt-get update && apt-get install -y curl wget openjdk-11-jdk
       - name: smt
         run: update-alternatives --list java
       - name: set JAVA_HOME
