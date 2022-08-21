@@ -24,7 +24,7 @@ jobs:
       - name: set JAVA_HOME
         run: export JAVA_HOME=$JAVA_HOME:/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
       - name: Make possible generate reports
-        run: chmod -R o+xw allure-results && chown root allure-results/ && chgrp root allure-results/
+        run: chmod -R o+xw allure-results && allure results:[[path:'allure-results']]
       - name: Generate Report
         if: always()
         run: npm run allure:generate
