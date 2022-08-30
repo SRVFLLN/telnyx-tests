@@ -8,6 +8,7 @@ const questionSections = "script + h2 + dl > div";
 class StoragePage extends BasePage {
     scrollToFAQ() {
         this.scrollTo(sectionFAQHeader);
+        this.unfocus();
     }
 
     clickOnQuestionButton() {

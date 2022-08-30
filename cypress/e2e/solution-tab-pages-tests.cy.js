@@ -7,7 +7,7 @@ describe("Solution tab", () => {
         mainPage.Header.getSolutionTabContent().should('be.visible');
         mainPage.Header.clickOnUseCases();
 
-        useCasesPage.getUseCasesBlocks().should('have.length', 20);
+        useCasesPage.getUseCasesBlocks().should('have.length', 23);
         useCasesPage.getILABlock().should('exist');
     })
 })

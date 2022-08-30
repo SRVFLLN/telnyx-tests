@@ -19,7 +19,7 @@ describe("Product tab", () => {
         mainPage.Header.clickOnStorage();
     
         storagePage.scrollToFAQ();
-        storagePage.Questions.first().should('be.visible');
+        storagePage.Questions.should('be.visible');
         storagePage.Questions.should('have.length', 8);
         storagePage.clickOnQuestionButton();
         storagePage.AnswerText.should('contain', checks.storageAnswer);

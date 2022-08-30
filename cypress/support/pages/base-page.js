@@ -8,8 +8,12 @@ exports.BasePage = class BasePage {
     }
 
     clickOn(elLocator, xpath = false) {
-        cy.get('html').realMouseMove(0,0);
         this.getElement(elLocator, xpath).click();
+        this.unfocus();
+    }
+
+    unfocus() {
+        cy.get('html').realMouseMove(0,0);
     }
 
     clickOnByCoord(elLocator, x, y, xpath = false) {

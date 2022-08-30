@@ -1,7 +1,8 @@
 const registerData = require("../fixtures/register.json");
 const mainPage = require("../support/pages/main-page");
+const signUpPage = require("../support/pages/sign-up-page");
 
-decscribe("Registration", () => {
+describe("Registration", () => {
       it('Should shows error message, when credentials is invalid', () => {
         mainPage.typeEmail();
     
