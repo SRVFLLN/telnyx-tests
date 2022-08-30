@@ -42,7 +42,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.4
         if: always()
         with:
-          branch: master 
+          branch: fixes 
           folder: allure-report
           target-folder: docs
       - name: Pushes docs to another repository
