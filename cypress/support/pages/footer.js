@@ -20,14 +20,17 @@ class Footer extends BasePage {
     }
 
     clickOnAboutUs() {
+        this.scrollToFooter();
         this.clickOn(aboutUsLink);
     }
 
     clickOnBlog() {
+        this.scrollToFooter();
         this.clickOn(blogLink);
     }
 
     clickOnReleaseNotes() {
+        this.scrollToFooter();
         this.clickOn(releaseNotesLink);
     }
 }
