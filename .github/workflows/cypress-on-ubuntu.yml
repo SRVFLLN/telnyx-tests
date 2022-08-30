@@ -15,7 +15,7 @@ jobs:
       - run: npm ci
       - name: Run Tests
         run: npm run test
-        - name: Check file existance
+      - name: Check file existance
         id: check_files
         uses: andstor/file-existence-action@v1
         with:
