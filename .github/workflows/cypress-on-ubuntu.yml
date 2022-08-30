@@ -2,7 +2,7 @@ name: Cypress Tests on Ubuntu
 on:
   push:
     branches:
-      - 'master'
+      - 'fixes'
 
 jobs:
   cypress-tests:
@@ -15,8 +15,13 @@ jobs:
       - run: npm ci
       - name: Run Tests
         run: npm run test
+        - name: Check file existance
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "./docs/history/, ./allure-results/history/" 
       - name: Copy History
-        if: always()
+        if: steps.check_files.outputs.files_exists == 'true'
         run: cp -r ./docs/history/ ./allure-results/history/
       - name: Generate Report
         if: always()
