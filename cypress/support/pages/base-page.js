@@ -7,13 +7,8 @@ exports.BasePage = class BasePage {
         cy.visit("");
     }
 
-    // This strange move for unfocus elements, 'cause when i trigger drop-donw menu, 
-    // and then go to different page, DD menu don't close
-    constructor() {
-        cy.get('html').realMouseMove(0,0); 
-    }
-
     clickOn(elLocator, xpath = false) {
+        cy.get('html').realMouseMove(0,0);
         this.getElement(elLocator, xpath).click();
     }
 

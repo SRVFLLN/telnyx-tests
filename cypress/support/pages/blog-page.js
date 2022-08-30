@@ -14,7 +14,7 @@ const searchResults = "a + div div[class*='Text']";
 const commSIPPostPubTime = "div[id='articles'] a[href*='sip-term'] time";
 const commSIPPostHeader = "div[id='articles'] a[href*='sip-term'] h2"
 
-exports.BlogPage = class BlogPage extends BasePage {
+class BlogPage extends BasePage {
     clickOnWirelessFilter() {
         this.clickOn(wirelessFilter, true);
     }
@@ -63,3 +63,5 @@ exports.BlogPage = class BlogPage extends BasePage {
         return this.getElementText(commSIPPostHeader);
     }
 }
+
+module.exports = new BlogPage();

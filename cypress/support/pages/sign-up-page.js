@@ -8,7 +8,7 @@ const submitButton = "button[type='submit']";
 const loaderInsideButton = "button[type='submit']>div"
 const errorMessage = "#signup-form_error";
 
-exports.SignUpPage = class SignUpPage extends BasePage {
+class SignUpPage extends BasePage {
     getEmailValue() {
         return this.getElement(emailInput);
     }
@@ -33,3 +33,5 @@ exports.SignUpPage = class SignUpPage extends BasePage {
         return this.getElement(errorMessage);
     }
 }
+
+module.exports = new SignUpPage();

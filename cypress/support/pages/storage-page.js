@@ -5,7 +5,7 @@ const questionButton = "//button[contains(text(),'What is')]";
 const answerTextBox = "//button[contains(text(),'What is')]/parent::dt/following-sibling::dd//p";
 const questionSections = "script + h2 + dl > div";
 
-exports.StoragePage = class StoragePage extends BasePage {
+class StoragePage extends BasePage {
     scrollToFAQ() {
         this.scrollTo(sectionFAQHeader);
     }
@@ -22,3 +22,5 @@ exports.StoragePage = class StoragePage extends BasePage {
         return this.getElement(questionSections);
     }
 }
+
+module.exports = new StoragePage();

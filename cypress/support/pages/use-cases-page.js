@@ -3,7 +3,7 @@ const { BasePage } = require("./base-page");
 const useCasesBlocks = "main ul li a";
 const instantLABlock = "//main//ul/li/a//h3[text()='Instant Lead Alerts']";
 
-exports.UseCasesPage = class UseCasesPage extends BasePage {
+class UseCasesPage extends BasePage {
     getUseCasesBlocks() {
         return this.getElement(useCasesBlocks);
     }
@@ -12,3 +12,5 @@ exports.UseCasesPage = class UseCasesPage extends BasePage {
         return this.getElement(instantLABlock, true);
     }
 }
+
+module.exports = new UseCasesPage();

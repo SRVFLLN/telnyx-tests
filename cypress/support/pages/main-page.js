@@ -21,7 +21,7 @@ const phoneUpSliderRail = "//div[contains(text(),'outbound')]/following-sibling:
 const smsUpSliderBail = "//div[contains(text(),'Send')]/following-sibling::div//div[@class='ant-slider-step']";
 const downSliderRail = "//div[contains(text(),'Receive')]/following-sibling::div//div[@class='ant-slider-step']";
 
-exports.MainPage = class MainPage extends BasePage {
+class MainPage extends BasePage {
     navigate() {
         super.navigate();
     }
@@ -87,3 +87,5 @@ exports.MainPage = class MainPage extends BasePage {
         return this.getElementText(finalPrice, true);
     }
 }
+
+module.exports = new MainPage();

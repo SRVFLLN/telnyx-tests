@@ -7,7 +7,7 @@ const dublinCardTitle = "//span[text()='Dublin']";
 const dublinAddressTextBox = "//span[text()='Dublin']/ancestor::h4/parent::div//br/parent::p";
 const dublinOfficeNumber = "//span[text()='Dublin']/ancestor::h4/parent::div//p[contains(text(),'+')]";
 
-exports.AboutUsPage = class AboutUsPage extends BasePage {
+class AboutUsPage extends BasePage {
     get chicagoCardTitle() {
         return this.getElement(chicagoCardTitle, true);
     }
@@ -40,3 +40,5 @@ exports.AboutUsPage = class AboutUsPage extends BasePage {
         return this.getElementText(dublinOfficeNumber, true);
     }
 }
+
+module.exports = new AboutUsPage();

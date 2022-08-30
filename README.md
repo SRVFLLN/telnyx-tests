@@ -1,10 +1,15 @@
-Tests for the site "https://telnyx.com", implemented with Cypress framework.
+# Functional tests for telnyx.com
 
-To run the tests:
+Tests for the site "https://telnyx.com", implemented with Cypress framework.
+## Setup
+
+### Install software and check out the project
 
 1. Create a folger and navigate to it.
-2. Open a command prompt and type 'git pull https://github.com/SRVFLLN/telnyx-tests'
-3. Type the command 'npm ci' to install all necessary dependencies.
-4. Enter the command 'npm run test' to run the tests.
+2. Open a command prompt and type ```git clone https://github.com/SRVFLLN/telnyx-tests```
+3. Type the command ```npm ci``` to install all necessary dependencies.
 
-Generate allure reports with the command 'npm run allure:generate', open them by typing 'allure open'.
+### How to run the tests on windows
+
+Inside the checked out folder open terminal and execute ```npm run test```.
+Generate allure reports with the command ```npm run allure:generate```, open them by typing ```allure open```.
